@@ -1,0 +1,61 @@
+<style>
+* {
+  padding:0;
+  margin:0;
+}
+body {
+  position:relative;
+}
+.container {
+    background-color: #f9f9f9;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.boop {
+width:100%;
+height:100%;
+display:flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+padding: 0;
+margin: 0;
+}
+.pomo {
+  width:100%;
+  height:100%;
+}
+</style>
+<body>
+
+
+<div class="container">
+  <img id="pomo" class="pomo" src="tomato.svg"></div>
+</div>
+<div class="boop">
+<p style="z-index:50;padding-top:50px;">Timer here</p>
+</div>
+<script>
+var width = 100;
+var height = 100;
+var grow = setInterval(function(){
+  document.getElementById("pomo").style.width = width + "%";
+  document.getElementById("pomo").style.height = width + "%";
+  // height -=1;
+  // width-= 1;
+  height -=.001;
+  width-= .001;
+}, 15);
+
+</script>
+</body>
