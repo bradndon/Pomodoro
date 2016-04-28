@@ -1,0 +1,36 @@
+* {
+  padding:0;
+  margin:0;
+}
+body {
+  position:relative;
+}
+.container {
+    background-color: #f9f9f9;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.boop {
+width:100%;
+height:100%;
+display:flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+padding: 0;
+margin: 0;
+}
+.pomo {
+  width:100%;
+  height:100%;
+}
