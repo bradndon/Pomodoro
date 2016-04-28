@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import "../sass/main.scss"
 
-class MainContainer extends Component {
+class Main extends Component {
   render() {
     return (
       <div className="boop">Hello there!
@@ -11,4 +11,4 @@ class MainContainer extends Component {
   }
 }
 
-export default MainContainer
+export default Main

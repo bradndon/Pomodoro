@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MainContainer from './containers/MainContainer'
+import routes from './config/routes'
 
-ReactDOM.render(<MainContainer/>, document.getElementById('app'))
+ReactDOM.render(routes, document.getElementById('app'))
