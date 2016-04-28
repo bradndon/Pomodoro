@@ -16,6 +16,7 @@ class TimerContainer extends Component {
     this.interval = setInterval(() => {
       const millisecondsLeft = deadline.getTime() - (new Date()).getTime();
       this.setState({
+        milliseconds: millisecondsLeft,
         width: millisecondsLeft/milliseconds*100,
         height: millisecondsLeft/milliseconds*100
       })
@@ -32,6 +33,7 @@ class TimerContainer extends Component {
   render() {
     return (<div className="container">
       <Timer
+        time={this.state.milliseconds}
         width={this.state.width}
         height={this.state.height}/>
     </div>)
