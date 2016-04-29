@@ -1,16 +1,15 @@
 import React, {Component} from 'react'
 import TimerImage from '../components/TimerImage'
 import Timer from '../components/Timer'
-import '../sass/main.scss'
-import '../sass/components/timer.scss'
-
 
 class TimerContainer extends Component {
   constructor() {
     super()
     this.state = {
       width: 100,
-      height: 100
+      height: 100,
+      paused: false
+
     }
   }
   componentDidMount() {
@@ -32,6 +31,7 @@ class TimerContainer extends Component {
     if (this.interval) {
       window.clearInterval(this.interval)
       this.interval = false
+
     } else {
       const deadline = (new Date(Date.parse(new Date()) + this.state.millisecondsLeft)).getTime()
       this.setState({
@@ -39,6 +39,9 @@ class TimerContainer extends Component {
       })
       this.interval = setInterval(()=>this.updateTimer(), 100)
     }
+    this.setState({
+      paused: !this.state.paused
+    })
   }
   handleStartTimer() {
     this.interval = setInterval(()=>this.updateTimer(), 100)
@@ -54,20 +57,23 @@ class TimerContainer extends Component {
     if (this.state.width <= 0) {
       //Do finish timer stuff
       console.log("ALL DONE")
+      this.setState({
+        width:0,
+        height:0
+      })
       window.clearInterval(this.interval)
     }
   }
   render() {
     return (
       <div style={{width:"100%",height:"100%"}}>
-        <div className="timerImage">
-          <TimerImage
-            width={this.state.width}
-            height={this.state.height}/>
-        </div>
+        <TimerImage
+          width={this.state.width}
+          height={this.state.height}/>
         <Timer
           onToggleTimer={()=>this.handleToggleTimer()}
-          time={this.state.secondsLeft}/>
+          time={this.state.secondsLeft}
+          paused={this.state.paused}/>
       </div>)
   }
 }
