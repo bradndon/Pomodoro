@@ -4,9 +4,7 @@ import "../sass/main.scss"
 class Main extends Component {
   render() {
     return (
-      <div className="boop">Hello there!
-        {this.props.children}
-      </div>
+      this.props.children
     )
   }
 }

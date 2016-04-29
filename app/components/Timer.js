@@ -1,11 +1,12 @@
-import React, {PropTypes} from 'react'
-import '../sass/main.scss'
+import React, { PropTypes } from 'react'
 
-
-function Timer({width, height, time}) {
-  return (<div><p>{parseInt((time/1000),10)}</p><img
-    style={{width: width + "%", height:height + "%"}}
-    src="../../tomato.svg"/></div>)
+const Timer = (props) => {
+  return (
+    <div className="timer">
+      {props.time && <h1 className="timer__text">{parseInt(props.time / 60)} : {props.time % 60}</h1>}
+      <button onClick={props.onToggleTimer}>Pause timer</button>
+    </div>
+  )
 }
 
 export default Timer
