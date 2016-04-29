@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import TimerImage from '../components/TimerImage'
 import Timer from '../components/Timer'
 
-class TimerContainer extends Component {
+class BreakContainer extends Component {
   constructor() {
     super()
     this.state = {
@@ -52,9 +52,9 @@ class TimerContainer extends Component {
         height:0
       })
       this.context.router.push({
-        pathname: '/break',
+        pathname: '/timer',
         state: {
-          milliseconds: 5*60*1000
+          milliseconds: 25*60*1000
         }
       })
       window.clearInterval(this.interval)
@@ -74,8 +74,8 @@ class TimerContainer extends Component {
   }
 }
 
-TimerContainer.contextTypes = {
+BreakContainer.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
-export default TimerContainer
+export default BreakContainer
