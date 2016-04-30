@@ -8,11 +8,14 @@
   overflow: hidden;
   padding: 0;
   margin: 0;
+  padding-right: 22px;
+  box-sizing: border-box;
 
   &__text {
     font-size: 72px;
     margin-bottom: 15px;
     color: #f9f9f9;
+    text-align: center;
   }
   &__button {
     font-family: "Oswald", sans-serif;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import TimerImage from '../components/TimerImage'
+import CenterImage from '../components/CenterImage'
 import Timer from '../components/Timer'
 
 class TimerContainer extends Component {
@@ -54,7 +54,7 @@ class TimerContainer extends Component {
       this.context.router.push({
         pathname: '/break',
         state: {
-          milliseconds: 5*60*1000
+          milliseconds: 0.1*60*1000
         }
       })
       window.clearInterval(this.interval)
@@ -63,9 +63,10 @@ class TimerContainer extends Component {
   render() {
     return (
       <div style={{width:"100%",height:"100%"}}>
-        <TimerImage
+        <CenterImage
           width={this.state.width}
-          height={this.state.height}/>
+          height={this.state.height}
+          imagesrc={"../../tomato.svg"}/>
         <Timer
           onToggleTimer={()=>this.handleToggleTimer()}
           time={this.state.secondsLeft}
