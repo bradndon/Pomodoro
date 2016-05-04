@@ -57,7 +57,7 @@ class TimerContainer extends Component {
         this.context.router.push({
           pathname: '/break',
           state: {
-            milliseconds: 5*60*1000,
+            milliseconds: 15*60*1000,
             completed: this.props.location.state.completed + 1
           }
         })
@@ -65,7 +65,7 @@ class TimerContainer extends Component {
         this.context.router.push({
           pathname: '/break',
           state: {
-            milliseconds: 15*60*1000,
+            milliseconds: 5*60*1000,
             completed: this.props.location.state.completed + 1
           }
         })
