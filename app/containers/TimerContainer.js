@@ -57,7 +57,7 @@ class TimerContainer extends Component {
         this.context.router.push({
           pathname: '/break',
           state: {
-            milliseconds: .1*60*1000,
+            milliseconds: 5*60*1000,
             completed: this.props.location.state.completed + 1
           }
         })
@@ -65,7 +65,7 @@ class TimerContainer extends Component {
         this.context.router.push({
           pathname: '/break',
           state: {
-            milliseconds: .05*60*1000,
+            milliseconds: 15*60*1000,
             completed: this.props.location.state.completed + 1
           }
         })
@@ -86,7 +86,7 @@ class TimerContainer extends Component {
           time={this.state.secondsLeft}
           paused={this.state.paused}/>
           <h1 className='timer__text timer__text--top'>Pomodoro Timer</h1>
-        
+
         <ProgressBar
           selected={this.props.location.state.completed} />
       </div>)

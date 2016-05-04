@@ -16,6 +16,8 @@
     margin-bottom: 15px;
     color: #f9f9f9;
     text-align: center;
+    opacity: 1;
+    transition: opacity .5s;
     &--top {
       position: absolute;
       top:0;
@@ -24,6 +26,9 @@
       font-size: 54px;
       transition: top 1s, left 1s, font-size 1s;
       z-index: 45;
+    }
+    &--transparent {
+      opacity: 0;
     }
   }
   &__button {

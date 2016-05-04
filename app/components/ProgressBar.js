@@ -1,20 +1,26 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import '../sass/components/ProgressBar.scss'
 
-const ProgressBar = (props) => {
-  return (
+class ProgressBar extends Component {
+  componentDidMount() {
+    window.setTimeout(()=>{
+      document.getElementById('prog' + this.props.selected%8).classList.add('progressBar__piece--selected');
+    },10);
+  }
+  render(){
+    return(
     <div style={{width:'100%', height: '20px', position: 'absolute', bottom: '10px', paddingRight: '10px', paddingLeft:'10px', boxSizing:'border-box'}}>
-      <div className={props.selected %8 == 0 ? "progressBar__piece progressBar__piece--red progressBar__piece--selected" : "progressBar__piece progressBar__piece--red"} style={{width:'19.2%'}}></div>
-      <div className={props.selected %8 == 1 ? "progressBar__piece progressBar__piece--green progressBar__piece--selected" : "progressBar__piece progressBar__piece--green"} style={{width:'3.9%'}}></div>
-      <div className={props.selected %8 == 2 ? "progressBar__piece progressBar__piece--red progressBar__piece--selected" : "progressBar__piece progressBar__piece--red"} style={{width:'19.2%'}}></div>
-      <div className={props.selected %8 == 3 ? "progressBar__piece progressBar__piece--green progressBar__piece--selected": "progressBar__piece progressBar__piece--green"} style={{width:'3.9%'}}></div>
-      <div className={props.selected %8 == 4 ? "progressBar__piece progressBar__piece--red progressBar__piece--selected" : "progressBar__piece progressBar__piece--red"} style={{width:'19.2%'}}></div>
-      <div className={props.selected %8 == 5 ? "progressBar__piece progressBar__piece--green progressBar__piece--selected": "progressBar__piece progressBar__piece--green"} style={{width:'3.9%'}}></div>
-      <div className={props.selected %8 == 6 ? "progressBar__piece progressBar__piece--red progressBar__piece--selected" : "progressBar__piece progressBar__piece--red"} style={{width:'19.2%'}}></div>
-      <div className={props.selected %8 == 7 ? "progressBar__piece progressBar__piece--green progressBar__piece--selected": "progressBar__piece progressBar__piece--green"} style={{width: '11.5%'}}></div>
+      <div id='prog0' className="progressBar__piece progressBar__piece--red" style={{width:'19.2%'}}></div>
+      <div id='prog1' className="progressBar__piece progressBar__piece--green" style={{width:'3.9%'}}></div>
+      <div id='prog2' className="progressBar__piece progressBar__piece--red" style={{width:'19.2%'}}></div>
+      <div id='prog3' className="progressBar__piece progressBar__piece--green" style={{width:'3.9%'}}></div>
+      <div id='prog4' className="progressBar__piece progressBar__piece--red" style={{width:'19.2%'}}></div>
+      <div id='prog5' className="progressBar__piece progressBar__piece--green" style={{width:'3.9%'}}></div>
+      <div id='prog6' className="progressBar__piece progressBar__piece--red" style={{width:'19.2%'}}></div>
+      <div id='prog7' className="progressBar__piece progressBar__piece--green" style={{width: '11.5%'}}></div>
 
     </div>
-  )
+  )}
 }
 
 export default ProgressBar
