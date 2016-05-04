@@ -29,6 +29,7 @@ p {
   text-align: center;
   line-height: 3.7rem;
   letter-spacing: 1px;
+  transition: opacity 1s;
   @media screen and (max-width: 680px) {
     margin-bottom: 25px;
   }

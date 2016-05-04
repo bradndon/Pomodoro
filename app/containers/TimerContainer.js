@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import CenterImage from '../components/CenterImage'
 import Timer from '../components/Timer'
+import ProgressBar from '../components/ProgressBar'
+import {Link} from 'react-router'
 
 class TimerContainer extends Component {
   constructor() {
@@ -51,12 +53,23 @@ class TimerContainer extends Component {
         width:0,
         height:0
       })
-      this.context.router.push({
-        pathname: '/break',
-        state: {
-          milliseconds: 0.1*60*1000
-        }
-      })
+      if ((this.props.location.state.completed + 1) % 8 == 0){
+        this.context.router.push({
+          pathname: '/break',
+          state: {
+            milliseconds: .1*60*1000,
+            completed: this.props.location.state.completed + 1
+          }
+        })
+      } else {
+        this.context.router.push({
+          pathname: '/break',
+          state: {
+            milliseconds: .05*60*1000,
+            completed: this.props.location.state.completed + 1
+          }
+        })
+      }
       window.clearInterval(this.interval)
     }
   }
@@ -67,10 +80,15 @@ class TimerContainer extends Component {
           width={this.state.width}
           height={this.state.height}
           imagesrc={"../../tomato.svg"}/>
+
         <Timer
           onToggleTimer={()=>this.handleToggleTimer()}
           time={this.state.secondsLeft}
           paused={this.state.paused}/>
+          <h1 className='timer__text timer__text--top'>Pomodoro Timer</h1>
+        
+        <ProgressBar
+          selected={this.props.location.state.completed} />
       </div>)
   }
 }

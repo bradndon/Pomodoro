@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import CenterImage from '../components/CenterImage'
 import Timer from '../components/Timer'
+import ProgressBar from '../components/ProgressBar'
 
 class BreakContainer extends Component {
   constructor() {
@@ -54,7 +55,8 @@ class BreakContainer extends Component {
       this.context.router.push({
         pathname: '/timer',
         state: {
-          milliseconds: 0.1*60*1000
+          milliseconds: .05*60*1000,
+          completed: this.props.location.state.completed + 1
         }
       })
       window.clearInterval(this.interval)
@@ -71,6 +73,9 @@ class BreakContainer extends Component {
           onToggleTimer={()=>this.handleToggleTimer()}
           time={this.state.secondsLeft}
           paused={this.state.paused}/>
+            <h1 className='timer__text timer__text--top'>Pomodoro Timer</h1>
+       <ProgressBar
+          selected={this.props.location.state.completed} />
       </div>)
   }
 }

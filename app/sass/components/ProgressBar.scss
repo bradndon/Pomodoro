@@ -1,0 +1,29 @@
+.progressBar {
+  &:first-child {
+    border-radius: '10px 0 0 10px'
+  }
+  &__piece {
+    width:3.9%;
+    height: 20px;
+    float: left;
+    transition: background-color .3s;
+    &--selected:nth-child(2n+2) {
+      background-color: white !important;
+    }
+    &--selected:nth-child(2n+1) {
+      background-color: white !important;
+    }
+    &--red {
+      background-color: #ff4d2e;
+    }
+    &--green {
+      background-color: #00981c;
+    }
+    &:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+    &:last-child {
+      border-radius: 0 10px 10px 0;
+    }
+  }
+}
