@@ -40,8 +40,8 @@ class BreakContainer extends Component {
     this.setState({
       secondsLeft: parseInt(millisecondsLeft / 1000),
       millisecondsLeft,
-      width: millisecondsLeft/this.state.milliseconds*100,
-      height: millisecondsLeft/this.state.milliseconds*100
+      width: (millisecondsLeft - 1000)/this.state.milliseconds*100,
+      height: (millisecondsLeft-1000)/this.state.milliseconds*100
     })
     if (this.state.secondsLeft <= 0) {
       //Do finish timer stuff

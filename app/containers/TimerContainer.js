@@ -41,8 +41,8 @@ class TimerContainer extends Component {
     this.setState({
       secondsLeft: parseInt(millisecondsLeft / 1000),
       millisecondsLeft,
-      width: millisecondsLeft/this.state.milliseconds*100,
-      height: millisecondsLeft/this.state.milliseconds*100
+      width: (millisecondsLeft-1000)/this.state.milliseconds*100,
+      height:  (millisecondsLeft-1000)/this.state.milliseconds*100
     })
     if (this.state.secondsLeft <= 0) {
       //Do finish timer stuff
@@ -88,6 +88,7 @@ class TimerContainer extends Component {
           <h1 className='timer__text timer__text--top'>Pomodoro Timer</h1>
 
         <ProgressBar
+          progress={this.state.width}
           selected={this.props.location.state.completed} />
       </div>)
   }
