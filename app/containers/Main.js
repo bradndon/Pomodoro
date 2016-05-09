@@ -4,7 +4,10 @@ import "../sass/main.scss"
 class Main extends Component {
   render() {
     return (
-      this.props.children
+      <div>
+        <a target="_blank" href="http://secondsyllable.com"><img className='logo' src="../../secondsyllable.png"/></a>
+      {this.props.children}
+      </div>
     )
   }
 }
