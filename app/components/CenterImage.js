@@ -12,4 +12,10 @@ const CenterImage = ({width, height, imagesrc}) => {
     </div>)
 }
 
+CenterImage.propTypes = {
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  imagesrc: PropTypes.string.isRequired
+}
+
 export default CenterImage

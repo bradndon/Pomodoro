@@ -38,4 +38,9 @@ class ProgressBar extends Component {
   )}
 }
 
+ProgressBar.propTypes = {
+  selected: PropTypes.number.isRequired,
+  progress: PropTypes.number.isRequired
+}
+
 export default ProgressBar

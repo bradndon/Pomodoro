@@ -4,21 +4,21 @@ import Timer from '../components/Timer'
 import ProgressBar from '../components/ProgressBar'
 
 class BreakContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    const milliseconds = this.props.location.state.milliseconds
+    const deadline = (new Date(Date.parse(new Date()) + milliseconds)).getTime()
+    const millisecondsLeft = deadline - (new Date()).getTime();
     this.state = {
       width: 100,
       height: 100,
-      paused: false
+      paused: false,
+      deadline,
+      milliseconds,
+      secondsLeft: parseInt(millisecondsLeft / 1000),
     }
   }
   componentDidMount() {
-    const milliseconds = this.props.location.state.milliseconds
-    const deadline = (new Date(Date.parse(new Date()) + milliseconds)).getTime()
-    this.setState({
-      deadline,
-      milliseconds
-    })
     this.interval = setInterval(()=>this.updateTimer(), 100)
   }
   componentWillUnmount() {
@@ -73,8 +73,9 @@ class BreakContainer extends Component {
           onToggleTimer={()=>this.handleToggleTimer()}
           time={this.state.secondsLeft}
           paused={this.state.paused}/>
-            <h1 className='timer__text timer__text--top'>Pomodoro Timer</h1>
-       <ProgressBar
+        <h1 className='timer__text timer__text--top'>Pomodoro Timer</h1>
+        <ProgressBar
+          progress={this.state.width}
           selected={this.props.location.state.completed} />
       </div>)
   }

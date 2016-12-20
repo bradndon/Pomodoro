@@ -41,12 +41,14 @@ class HomeContainer extends React.Component {
     return (
       <div>
         <CenterImage
-        width={100}
-        height={100}
-        imagesrc={"../../tomato.svg"}/>
-      <Home
-      onGetStarted={(event)=>this.handleGetStarted(event)}/>
-      <ProgressBar/>
+          width={100}
+          height={100}
+          imagesrc={"../../tomato.svg"}/>
+        <Home
+          onGetStarted={(event)=>this.handleGetStarted(event)}/>
+        <ProgressBar
+          selected={0}
+          progress={0}/>
     </div>
     )
   }

@@ -19,4 +19,8 @@ const Home = ({onGetStarted}) => {
     )
 }
 
+Home.propTypes = {
+  onGetStarted: PropTypes.func.isRequired
+}
+
 export default Home
